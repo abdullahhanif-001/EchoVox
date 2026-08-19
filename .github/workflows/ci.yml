@@ -33,6 +33,14 @@ jobs:
           ULTRA_SMOKE: "1"
         run: python tests/test_ultra_heavy_audit.py
 
+      - name: Sherlock adversarial audit (smoke)
+        env:
+          ADVERSARIAL_SMOKE: "1"
+        run: python tests/test_sherlock_adversarial.py
+
+      - name: STT market benchmark
+        run: python tests/benchmark_stt_market.py
+
       - name: Upload audit telemetry
         if: always()
         uses: actions/upload-artifact@v4
@@ -41,6 +49,8 @@ jobs:
           path: |
             tests/stt_ultimate_telemetry.json
             tests/heavy_audit_telemetry.json
+            tests/sherlock_adversarial_telemetry.json
+            docs/reports/artifacts/benchmark_stt_market.json
           retention-days: 30
 
       - name: Deployment script syntax check

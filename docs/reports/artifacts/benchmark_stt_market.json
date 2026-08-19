@@ -1,0 +1,33 @@
+{
+  "platform": {
+    "os": "Windows",
+    "arch": "AMD64",
+    "ram_gb": 7.89
+  },
+  "echovox": {
+    "rtf": 5.8e-05,
+    "latency_mean_ms": 0.1729,
+    "latency_p50_ms": 0.1586,
+    "latency_p95_ms": 0.2599,
+    "rss_mb": 35.66,
+    "rss_drift_mb": 0.0,
+    "runs": 100
+  },
+  "market_baselines": {
+    "whisper_cpp_q4": {
+      "rtf_max": 0.8,
+      "label": "whisper.cpp Q4_0 (CPU)"
+    },
+    "faster_whisper": {
+      "rtf_max": 0.5,
+      "label": "faster-whisper (CPU)"
+    },
+    "sherpa_onnx_int8": {
+      "rtf_max": 0.15,
+      "label": "sherpa-onnx INT8 (CPU)"
+    }
+  },
+  "beat_whisper_cpp_q4": true,
+  "target_rtf_max": 0.8,
+  "overall_pass": true
+}

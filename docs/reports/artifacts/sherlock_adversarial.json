@@ -1,0 +1,33 @@
+{
+  "platform": "Windows",
+  "assertions": {
+    "fake_200_guard": {
+      "pass": true,
+      "cases": 6
+    },
+    "blind_error_zero_drop": {
+      "pass": true,
+      "empty": 0
+    },
+    "unicode_guard": {
+      "pass": true
+    },
+    "speed_regression": {
+      "pass": true,
+      "rtf": 0.000119,
+      "max": 0.05
+    },
+    "memory_stability": {
+      "pass": true,
+      "drift_pct": 0.3756,
+      "steps": 500
+    },
+    "script_safety": {
+      "pass": true
+    },
+    "deploy_integrity": {
+      "pass": true
+    }
+  },
+  "overall_pass": true
+}

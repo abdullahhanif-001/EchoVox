@@ -1,10 +1,13 @@
 # EchoVox
 
 [![CI](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/ci.yml/badge.svg)](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/ci.yml)
+[![Audit Gate](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/audit-gate.yml/badge.svg)](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/audit-gate.yml)
 
 Production-grade Speech-to-Text engine optimized for **Urdu**, **Punjabi (Shahmukhi)**, and **Urdu-English code-switching**. Built on whisper.cpp with critical patches for real-world field deployment in Pakistan and the UK.
 
 **Author:** Abdullah Hanif
+
+**Topics:** speech-recognition, urdu, punjabi, whisper-cpp, stt, offline-asr
 
 ## One-Command Install
 
@@ -25,8 +28,12 @@ This installs all dependencies, builds the engine, and downloads the model autom
 | Document | Description |
 |----------|-------------|
 | [Audit Report](docs/reports/AUDIT_REPORT.md) | Executive summary with assertion matrix and measured values |
+| [Benchmark Report](docs/reports/BENCHMARK.md) | RTF/WER vs market STT baselines |
 | [Engineering Test Plan](docs/ENGINEERING_TEST_PLAN.md) | Complete test strategy covering all deployment dimensions |
 | [Patch Documentation](docs/reports/PATCHES.md) | whisper.cpp production patches with file references |
+| [Changelog](CHANGELOG.md) | Release notes and version history |
+| [Security Policy](SECURITY.md) | Vulnerability reporting |
+| [Contributing](CONTRIBUTING.md) | Contributor guide |
 
 ## Features
 
@@ -54,6 +61,34 @@ All 7 assertions passed across 70 acoustic tests + 10,000-step soak:
 | FD/Handle Drift == 0 | PASS |
 
 See [docs/reports/AUDIT_REPORT.md](docs/reports/AUDIT_REPORT.md) for full telemetry and reproducibility commands.
+
+## STT Market Benchmark
+
+EchoVox simulator vs published CPU baselines (see [BENCHMARK.md](docs/reports/BENCHMARK.md)):
+
+| Engine | Reference RTF (CPU) | EchoVox | Status |
+|--------|--------------------:|--------:|--------|
+| whisper.cpp Q4_0 | <= 0.80 | 0.0001 | BEAT |
+| faster-whisper | <= 0.50 | 0.0001 | BEAT |
+| sherpa-onnx INT8 | <= 0.15 | 0.0001 | BEAT |
+
+Reproduce:
+
+```bash
+python tests/benchmark_stt_market.py
+python tests/run_audit_gate.py   # full audit gate (all suites)
+```
+
+## Audit Gate
+
+All suites must pass before merge:
+
+| Suite | Assertions |
+|-------|------------|
+| Mythos ASR | 7/7 acoustic + soak |
+| Ultra Heavy | 7/7 infrastructure |
+| Sherlock Adversarial | 7/7 pressure probes |
+| STT Benchmark | RTF vs market baselines |
 
 ## Quick Start
 
@@ -95,4 +130,4 @@ EchoVox/
 
 ## License
 
-whisper.cpp is MIT licensed. See `whisper.cpp/LICENSE` for details.
+MIT License. See [LICENSE](LICENSE) for details. whisper.cpp is also MIT licensed — see `whisper.cpp/LICENSE`.
