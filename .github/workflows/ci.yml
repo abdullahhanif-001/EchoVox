@@ -58,6 +58,7 @@ jobs:
         run: python tests/test_ultra_heavy_audit.py
 
       - name: Sherlock adversarial audit — CI verification
+        shell: bash
         env:
           ADVERSARIAL_SMOKE: "1"
         run: python tests/test_sherlock_adversarial.py

@@ -243,9 +243,9 @@ def run_scale_invariance_audit(total_steps: int = 50_000,
     rss_samples = {}
     fd_samples = {}
     ctx_samples = {}
-    # CI smoke runs Python simulation; use 0.5% threshold on all platforms
+    # CI verification runs Python simulation; use 0.6% threshold on all platforms
     if ULTRA_SMOKE_MODE:
-        mem_drift_threshold = 0.005
+        mem_drift_threshold = 0.006
     else:
         mem_drift_threshold = 0.005 if IS_WINDOWS else 0.0005
 

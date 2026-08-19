@@ -39,22 +39,40 @@ SOAK_STEPS = 500 if SMOKE else 2000
 
 
 def bash_script_path(path: Path) -> str:
-    """Return script name relative to repo root for bash -n."""
+    """Return script path for bash -n (MSYS path on Windows)."""
+    resolved = path.resolve()
+    if platform.system() == "Windows":
+        try:
+            rel = resolved.relative_to(ROOT.resolve()).as_posix()
+            return rel
+        except ValueError:
+            pass
+        posix = resolved.as_posix()
+        if len(posix) >= 2 and posix[1] == ":":
+            return f"/{posix[0].lower()}{posix[2:]}"
     try:
-        return path.resolve().relative_to(ROOT.resolve()).as_posix()
+        return resolved.relative_to(ROOT.resolve()).as_posix()
     except ValueError:
-        return path.name
+        return str(resolved)
 
 
 def validate_shell_script(path: Path) -> bool:
     """Run bash -n on LF-normalized script content (Windows CRLF safe)."""
+    import shutil
+
+    bash = shutil.which("bash")
+    if not bash and platform.system() == "Windows":
+        bash = r"C:\Program Files\Git\bin\bash.exe"
+    if not bash or not Path(bash).exists():
+        return True
+
     content = path.read_text(encoding="utf-8").replace("\r\n", "\n").replace("\r", "\n")
     tmp_dir = ROOT / ".tmp_validate"
     tmp_dir.mkdir(exist_ok=True)
     tmp_path = tmp_dir / path.name
     tmp_path.write_text(content, encoding="utf-8", newline="\n")
     r = subprocess.run(
-        ["bash", "-n", bash_script_path(tmp_path)],
+        [bash, "-n", bash_script_path(tmp_path)],
         capture_output=True,
         text=True,
         cwd=str(ROOT),
@@ -167,14 +185,12 @@ def run_adversarial_audit() -> int:
     print(f"  [5] Memory Stability:   {drift*100:.3f}% drift  [{'PASS' if mem_pass else 'FAIL'}]")
 
     # 6. Script safety
-    import shutil
     script_pass = True
-    if shutil.which("bash"):
-        scripts = ["install.sh", "deploy-vps.sh", "deploy-android.sh"]
-        for name in scripts:
-            path = ROOT / name
-            if path.exists() and not validate_shell_script(path):
-                script_pass = False
+    scripts = ["install.sh", "deploy-vps.sh", "deploy-android.sh"]
+    for name in scripts:
+        path = ROOT / name
+        if path.exists() and not validate_shell_script(path):
+            script_pass = False
     # docker-compose YAML basic check
     dc = ROOT / "docker-compose.yml"
     if dc.exists():
