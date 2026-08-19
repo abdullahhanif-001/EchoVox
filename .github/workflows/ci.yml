@@ -1,0 +1,51 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  audit:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: python -m pip install -U pip numpy psutil
+
+      - name: Mythos acoustic audit (smoke)
+        env:
+          MYTHOS_SMOKE: "1"
+        run: python tests/test_stt_mythos_ultimate.py
+
+      - name: Ultra heavy infrastructure audit (smoke)
+        env:
+          ULTRA_SMOKE: "1"
+        run: python tests/test_ultra_heavy_audit.py
+
+      - name: Upload audit telemetry
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: telemetry-${{ matrix.os }}
+          path: |
+            tests/stt_ultimate_telemetry.json
+            tests/heavy_audit_telemetry.json
+          retention-days: 30
+
+      - name: Deployment script syntax check
+        shell: bash
+        run: |
+          bash -n install.sh
+          bash -n deploy-vps.sh
+          bash -n deploy-android.sh
