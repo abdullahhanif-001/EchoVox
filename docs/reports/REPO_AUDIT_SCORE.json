@@ -1,0 +1,28 @@
+{
+  "audited_at": "2026-08-20T00:00:00Z",
+  "repo": "abdullahanifpro111-spec/EchoVox",
+  "api": "https://repo-audit.coey.dev/api/audit?repo=abdullahanifpro111-spec/EchoVox&ai=0",
+  "scores": {
+    "firstImpressions": 2,
+    "readme": 7,
+    "documentation": 3.5,
+    "codeQuality": 4.5,
+    "testing": 4,
+    "cicd": 6.5,
+    "security": 5,
+    "community": 4.5,
+    "maintenance": 4.75,
+    "dx": 4,
+    "licensing": 9
+  },
+  "overall_average": 4.57,
+  "grade": "C",
+  "critical_categories": {
+    "security": 5,
+    "testing": 4,
+    "cicd": 6.5,
+    "target_min": 7.0
+  },
+  "target_grade": "A (>=7.0) / S (>=8.5)",
+  "notes": "Initial audit before rubric hardening push. Re-run API after CI/coverage/COC/release workflow lands on main."
+}

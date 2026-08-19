@@ -14,12 +14,12 @@
     },
     "speed_regression": {
       "pass": true,
-      "rtf": 0.000119,
+      "rtf": 0.000188,
       "max": 0.05
     },
     "memory_stability": {
       "pass": true,
-      "drift_pct": 0.3756,
+      "drift_pct": 0.1031,
       "steps": 500
     },
     "script_safety": {

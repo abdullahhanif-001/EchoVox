@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/ci.yml/badge.svg)](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/ci.yml)
 [![Audit Gate](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/audit-gate.yml/badge.svg)](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/audit-gate.yml)
+[![Repo Audit](https://img.shields.io/badge/Repo%20Audit-4.6%2F10-yellow)](https://repo-audit.coey.dev/?repo=abdullahanifpro111-spec/EchoVox)
 
 Production-grade Speech-to-Text engine optimized for **Urdu**, **Punjabi (Shahmukhi)**, and **Urdu-English code-switching**. Built on whisper.cpp with critical patches for real-world field deployment in Pakistan and the UK.
 
@@ -34,6 +35,7 @@ This installs all dependencies, builds the engine, and downloads the model autom
 | [Changelog](CHANGELOG.md) | Release notes and version history |
 | [Security Policy](SECURITY.md) | Vulnerability reporting |
 | [Contributing](CONTRIBUTING.md) | Contributor guide |
+| [Code of Conduct](CODE_OF_CONDUCT.md) | Community standards |
 
 ## Features
 
@@ -95,6 +97,31 @@ All suites must pass before merge:
 ```bash
 cd ~/EchoVox
 ./whisper.cpp/build/bin/whisper-cli -m models/ggml-small.bin -l ur -f audio.wav
+```
+
+### Usage Examples
+
+**Transcribe Urdu audio (CLI):**
+```bash
+./whisper.cpp/build/bin/whisper-cli -m models/ggml-small.bin -l ur -f samples/urdu.wav --output-txt
+```
+
+**Transcribe with VAD (server mode):**
+```bash
+bash deploy-vps.sh
+curl -F "file=@samples/urdu.wav" http://localhost:8080/inference
+```
+
+**Run audit gate locally:**
+```bash
+pip install -r requirements.txt
+MYTHOS_SMOKE=1 ULTRA_SMOKE=1 ADVERSARIAL_SMOKE=1 python tests/run_audit_gate.py
+```
+
+**Docker deployment:**
+```bash
+docker-compose up -d
+curl -F "file=@samples/urdu.wav" http://localhost:8080/inference
 ```
 
 ## Deployment

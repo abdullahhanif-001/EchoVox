@@ -21,7 +21,20 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: python -m pip install -U pip numpy psutil
+        run: python -m pip install -U pip -r requirements.txt
+
+      - name: Test coverage (pytest-cov)
+        env:
+          MYTHOS_SMOKE: "1"
+          ULTRA_SMOKE: "1"
+          ADVERSARIAL_SMOKE: "1"
+        run: |
+          coverage run --source=tests tests/test_stt_mythos_ultimate.py
+          coverage run -a --source=tests tests/test_ultra_heavy_audit.py
+          coverage run -a --source=tests tests/test_sherlock_adversarial.py
+          coverage run -a --source=tests tests/benchmark_stt_market.py
+          coverage xml -o coverage.xml
+          coverage report --fail-under=50
 
       - name: Mythos acoustic audit (smoke)
         env:
