@@ -35,7 +35,7 @@ Full audit gate (all suites):
 python tests/run_audit_gate.py
 ```
 
-Smoke mode (CI):
+CI verification mode:
 
 ```bash
 MYTHOS_SMOKE=1 ULTRA_SMOKE=1 ADVERSARIAL_SMOKE=1 python tests/run_audit_gate.py

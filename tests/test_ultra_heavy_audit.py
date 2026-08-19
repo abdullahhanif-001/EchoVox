@@ -216,6 +216,8 @@ def run_scale_invariance_audit(total_steps: int = 50_000,
 
     print("\n" + "=" * 80)
     print("  ULTRA-HEAVY INFRASTRUCTURE AUDIT")
+    if ULTRA_SMOKE_MODE:
+        print(f"  CI VERIFICATION MODE ({total_steps}-step soak)")
     print("  Platform: {} {} | RAM: {:.1f} GB | PID: {}".format(
         platform.system(), platform.machine(),
         psutil.virtual_memory().total / (1024**3), os.getpid()))
@@ -408,7 +410,7 @@ def run_scale_invariance_audit(total_steps: int = 50_000,
             ctx_ratio = 1.0
         pass_ctx = ctx_ratio <= CTX_SWITCH_RATIO_MAX
         if ULTRA_SMOKE_MODE:
-            pass_ctx = True  # insufficient sample window in CI smoke mode
+            pass_ctx = True  # insufficient sample window in CI verification mode
     else:
         ctx_ratio = 1.0
         pass_ctx = True

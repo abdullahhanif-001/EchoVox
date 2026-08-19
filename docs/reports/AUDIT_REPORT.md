@@ -68,13 +68,13 @@ Both suites validate production readiness for Urdu, Punjabi (Shahmukhi), and Urd
 # Full Mythos audit (10,000-step soak)
 python tests/test_stt_mythos_ultimate.py
 
-# CI smoke mode (500-step soak)
+# CI verification mode (500-step soak)
 MYTHOS_SMOKE=1 python tests/test_stt_mythos_ultimate.py
 
 # Full infrastructure audit (50,000 steps)
 python tests/test_ultra_heavy_audit.py
 
-# CI smoke mode (10,000 steps)
+# CI verification mode (10,000 steps)
 ULTRA_SMOKE=1 python tests/test_ultra_heavy_audit.py
 ```
 

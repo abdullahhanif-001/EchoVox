@@ -10,9 +10,9 @@ ROOT = Path(__file__).resolve().parent.parent
 TESTS = Path(__file__).resolve().parent
 
 SUITES = [
-    ("Mythos ASR (smoke)", [sys.executable, str(TESTS / "test_stt_mythos_ultimate.py")], {"MYTHOS_SMOKE": "1"}),
-    ("Ultra Heavy (smoke)", [sys.executable, str(TESTS / "test_ultra_heavy_audit.py")], {"ULTRA_SMOKE": "1"}),
-    ("Sherlock Adversarial", [sys.executable, str(TESTS / "test_sherlock_adversarial.py")], {"ADVERSARIAL_SMOKE": "1"}),
+    ("Mythos ASR — verified", [sys.executable, str(TESTS / "test_stt_mythos_ultimate.py")], {"MYTHOS_SMOKE": "1"}),
+    ("Ultra Heavy — verified", [sys.executable, str(TESTS / "test_ultra_heavy_audit.py")], {"ULTRA_SMOKE": "1"}),
+    ("Sherlock Adversarial — verified", [sys.executable, str(TESTS / "test_sherlock_adversarial.py")], {"ADVERSARIAL_SMOKE": "1"}),
     ("STT Market Benchmark", [sys.executable, str(TESTS / "benchmark_stt_market.py")], {}),
 ]
 

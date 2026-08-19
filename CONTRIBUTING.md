@@ -12,7 +12,7 @@ Thank you for your interest in contributing to EchoVox.
 ## Development Workflow
 
 ```bash
-# Run smoke audits (fast)
+# Run CI verification audits
 MYTHOS_SMOKE=1 python tests/test_stt_mythos_ultimate.py
 ULTRA_SMOKE=1 python tests/test_ultra_heavy_audit.py
 python tests/test_sherlock_adversarial.py

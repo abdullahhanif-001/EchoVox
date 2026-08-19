@@ -19,3 +19,8 @@ All notable changes to EchoVox are documented in this file.
 - SECURITY.md vulnerability reporting policy
 - CodeQL static analysis workflow
 - Dependabot dependency updates
+
+### Fixed
+- Windows CI Script Safety failure (CRLF line endings on shell scripts)
+- Git commit author corrected to GitHub noreply identity
+- CI step labels renamed from "smoke" to "CI verification" for clarity

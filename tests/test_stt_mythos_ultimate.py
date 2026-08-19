@@ -358,6 +358,8 @@ def get_handles():
 def run_mythos_audit():
     print("\n" + "=" * 95)
     print("  MYTHOS ULTIMATE ASR AUDIT -- Urdu / Punjabi (Shahmukhi)")
+    if SMOKE_MODE:
+        print(f"  CI VERIFICATION MODE ({SOAK_STEPS}-step soak)")
     print("  Platform: {} {} | RAM: {:.1f} GB | PID: {}".format(
         platform.system(), platform.machine(),
         psutil.virtual_memory().total / (1024**3), os.getpid()))

@@ -18,7 +18,7 @@ flowchart TB
     end
     subgraph ci [GitHub Actions CI]
         matrix[OS Matrix: Ubuntu macOS Windows]
-        smoke[Smoke Mode Audits]
+        ciVerify[CI Verification Audits]
         syntax[Deploy Script Syntax Check]
     end
     subgraph nightly [Nightly Soak]
@@ -137,7 +137,7 @@ irm https://raw.githubusercontent.com/abdullahanifpro111-spec/EchoVox/main/insta
 python tests/test_stt_mythos_ultimate.py
 python tests/test_ultra_heavy_audit.py
 
-# CI-equivalent smoke (faster)
+# CI-equivalent verification (faster)
 MYTHOS_SMOKE=1 python tests/test_stt_mythos_ultimate.py
 ULTRA_SMOKE=1 python tests/test_ultra_heavy_audit.py
 ```

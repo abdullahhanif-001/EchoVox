@@ -9,7 +9,6 @@ speed regression, memory stability. No bypass -- real assertions only.
 import json
 import os
 import platform
-import re
 import subprocess
 import sys
 import time
@@ -47,6 +46,22 @@ def bash_script_path(path: Path) -> str:
         return path.name
 
 
+def validate_shell_script(path: Path) -> bool:
+    """Run bash -n on LF-normalized script content (Windows CRLF safe)."""
+    content = path.read_text(encoding="utf-8").replace("\r\n", "\n").replace("\r", "\n")
+    tmp_dir = ROOT / ".tmp_validate"
+    tmp_dir.mkdir(exist_ok=True)
+    tmp_path = tmp_dir / path.name
+    tmp_path.write_text(content, encoding="utf-8", newline="\n")
+    r = subprocess.run(
+        ["bash", "-n", bash_script_path(tmp_path)],
+        capture_output=True,
+        text=True,
+        cwd=str(ROOT),
+    )
+    return r.returncode == 0
+
+
 class Fake200Detector:
     """Detect HTTP-style responses that return 200 with empty or error bodies."""
 
@@ -64,6 +79,8 @@ class Fake200Detector:
 def run_adversarial_audit() -> int:
     print("\n" + "=" * 70)
     print("  SHERLOCK ADVERSARIAL AUDIT")
+    if SMOKE:
+        print(f"  CI VERIFICATION MODE ({SOAK_STEPS}-step soak)")
     print(f"  Platform: {platform.system()} | PID: {os.getpid()}")
     print("=" * 70)
 
@@ -156,15 +173,8 @@ def run_adversarial_audit() -> int:
         scripts = ["install.sh", "deploy-vps.sh", "deploy-android.sh"]
         for name in scripts:
             path = ROOT / name
-            if path.exists():
-                r = subprocess.run(
-                    ["bash", "-n", bash_script_path(path)],
-                    capture_output=True,
-                    text=True,
-                    cwd=str(ROOT),
-                )
-                if r.returncode != 0:
-                    script_pass = False
+            if path.exists() and not validate_shell_script(path):
+                script_pass = False
     # docker-compose YAML basic check
     dc = ROOT / "docker-compose.yml"
     if dc.exists():

@@ -1,5 +1,6 @@
 # EchoVox
 
+[![Version](https://img.shields.io/badge/version-1.0.0-blue)](CHANGELOG.md)
 [![CI](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/ci.yml/badge.svg)](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/ci.yml)
 [![Audit Gate](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/audit-gate.yml/badge.svg)](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/audit-gate.yml)
 [![Repo Audit](https://img.shields.io/badge/Repo%20Audit-4.6%2F10-yellow)](https://repo-audit.coey.dev/?repo=abdullahanifpro111-spec/EchoVox)
@@ -112,7 +113,7 @@ bash deploy-vps.sh
 curl -F "file=@samples/urdu.wav" http://localhost:8080/inference
 ```
 
-**Run audit gate locally:**
+**Run audit gate locally (CI verification):**
 ```bash
 pip install -r requirements.txt
 MYTHOS_SMOKE=1 ULTRA_SMOKE=1 ADVERSARIAL_SMOKE=1 python tests/run_audit_gate.py
