@@ -3,9 +3,11 @@
 [![Version](https://img.shields.io/badge/version-1.0.0-blue)](CHANGELOG.md)
 [![CI](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/ci.yml/badge.svg)](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/ci.yml)
 [![Audit Gate](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/audit-gate.yml/badge.svg)](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/audit-gate.yml)
-[![Repo Audit](https://img.shields.io/badge/Repo%20Audit-4.6%2F10-yellow)](https://repo-audit.coey.dev/?repo=abdullahanifpro111-spec/EchoVox)
+[![SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=abdullahanifpro111-spec_EchoVox&metric=alert_status)](https://sonarcloud.io/summary/overall?id=abdullahanifpro111-spec_EchoVox&branch=main)
 
-Production-grade Speech-to-Text engine optimized for **Urdu**, **Punjabi (Shahmukhi)**, and **Urdu-English code-switching**. Built on whisper.cpp with critical patches for real-world field deployment in Pakistan and the UK.
+Production-grade Speech-to-Text engine optimized for **Urdu**, **Punjabi (Shahmukhi)**, and **Urdu-English code-switching**. 
+
+**EchoVox** is our product brand — not a from-scratch STT engine. ~98% of this repo is [whisper.cpp](https://github.com/ggml-org/whisper.cpp) upstream; our work is **five production patches**, **recreated 21-assertion audit gate**, and **one-command deploy** for field use in Pakistan and the UK. See [Brand & Attribution](docs/BRAND_AND_ATTRIBUTION.md).
 
 **Author:** Abdullah Hanif
 
@@ -36,7 +38,8 @@ This installs all dependencies, builds the engine, and downloads the model autom
 | [Changelog](CHANGELOG.md) | Release notes and version history |
 | [Security Policy](SECURITY.md) | Vulnerability reporting |
 | [Contributing](CONTRIBUTING.md) | Contributor guide |
-| [Code of Conduct](CODE_OF_CONDUCT.md) | Community standards |
+| [Brand & Attribution](docs/BRAND_AND_ATTRIBUTION.md) | Honest positioning: EchoVox brand vs whisper.cpp upstream (~98% / not from scratch) |
+| [Quality Gate](docs/reports/QUALITY_GATE.md) | SonarCloud / CodeQL scope and pass criteria |
 
 ## Features
 
@@ -158,4 +161,6 @@ EchoVox/
 
 ## License
 
-MIT License. See [LICENSE](LICENSE) for details. whisper.cpp is also MIT licensed — see `whisper.cpp/LICENSE`.
+MIT License. See [LICENSE](LICENSE) for details.
+
+**Attribution:** Inference engine is [whisper.cpp](https://github.com/ggml-org/whisper.cpp) (MIT, ggml-org). EchoVox adds patches, audits, and deploy tooling — we did **not** build STT from scratch. Details: [Brand & Attribution](docs/BRAND_AND_ATTRIBUTION.md).

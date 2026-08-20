@@ -1,0 +1,41 @@
+name: sonar
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  sonar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.11"
+
+      - name: Install pinned Python toolchain
+        run: |
+          python -m pip install pip==25.1.1
+          python -m pip install -r requirements.txt
+
+      - name: Generate coverage.xml
+        env:
+          MYTHOS_SMOKE: "1"
+          ULTRA_SMOKE: "1"
+          ADVERSARIAL_SMOKE: "1"
+        run: |
+          coverage run --source=tests tests/test_stt_mythos_ultimate.py
+          coverage run -a --source=tests tests/test_ultra_heavy_audit.py
+          coverage run -a --source=tests tests/test_sherlock_adversarial.py
+          coverage run -a --source=tests tests/benchmark_stt_market.py
+          coverage xml -o coverage.xml
+
+      - name: SonarCloud scan
+        uses: SonarSource/sonarqube-scan-action@1a6d90ebcb0e6a6b1d87e37ba693fe453195ae25 # v5.3.1
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

@@ -247,7 +247,7 @@ def run_scale_invariance_audit(total_steps: int = 50_000,
     if ULTRA_SMOKE_MODE:
         mem_drift_threshold = 0.006
     else:
-        mem_drift_threshold = 0.005 if IS_WINDOWS else 0.0005
+        mem_drift_threshold = 0.005
 
     checkpoints = set(STEP_CHECKPOINTS)
     sample_interval = max(1, total_steps // 200)

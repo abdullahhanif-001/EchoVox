@@ -5,11 +5,11 @@
     "ram_gb": 7.89
   },
   "echovox": {
-    "rtf": 5.8e-05,
-    "latency_mean_ms": 0.1747,
-    "latency_p50_ms": 0.1544,
-    "latency_p95_ms": 0.2617,
-    "rss_mb": 35.68,
+    "rtf": 0.000124,
+    "latency_mean_ms": 0.3734,
+    "latency_p50_ms": 0.3422,
+    "latency_p95_ms": 0.4868,
+    "rss_mb": 35.58,
     "rss_drift_mb": 0.0,
     "runs": 100
   },

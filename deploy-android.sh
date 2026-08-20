@@ -1,20 +1,20 @@
 #!/bin/bash
 # One-click Android STT deploy using sherpa-onnx (51x faster than whisper.cpp)
 # Requirements: Python 3.8+, pip, git, Android SDK+NDK, Java 17
-set -e
+set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 echo "=== Step 1: Clone sherpa-onnx ==="
-if [ ! -d "$SCRIPT_DIR/sherpa-onnx" ]; then
+if [[ ! -d "$SCRIPT_DIR/sherpa-onnx" ]]; then
   git clone https://github.com/k2-fsa/sherpa-onnx "$SCRIPT_DIR/sherpa-onnx"
 fi
 
 echo "=== Step 2: Install Python dependencies ==="
-pip install torch openai-whisper onnxruntime onnx
+python3 -m pip install --only-binary ":all:" torch openai-whisper onnxruntime onnx
 
 echo "=== Step 3: Download fine-tuned Urdu Whisper Small ==="
-if [ ! -d "$SCRIPT_DIR/whisper-small-urdu" ]; then
+if [[ ! -d "$SCRIPT_DIR/whisper-small-urdu" ]]; then
   git clone https://huggingface.co/khawajaaliarshad/whisper-small-urdu "$SCRIPT_DIR/whisper-small-urdu"
 fi
 
