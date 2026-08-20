@@ -21,17 +21,18 @@ curl.exe -s "https://sonarcloud.io/api/measures/component?component=abdullahanif
 
 Automatic Analysis reads [`.sonarcloud.properties`](../../.sonarcloud.properties) (`whisper.cpp/**` excluded). CI scanner reads [`sonar-project.properties`](../../sonar-project.properties).
 
-To switch to GitHub Actions analysis: SonarCloud → Project → Administration → Analysis Method → disable Automatic Analysis, then keep repo secret `SONAR_TOKEN`.
+**Live snapshot (revision `9b3fc93`, 2026-08-20T05:12:59Z): Quality Gate Green (was Red).**
 
-| Metric | Target |
+| Metric | Value |
 |--------|--------|
-| ncloc | << 471000 (EchoVox scripts/docs/tests only) |
-| security_rating | 1.0 (A) |
-| reliability_rating | 1.0 (A) |
-| sqale_rating | 1.0 (A) |
-| vulnerabilities | 0 on analyzed files |
-| bugs | 0 on analyzed files |
-| alert_status | OK |
+| alert_status | **OK** |
+| ncloc | **1615** (was 470823) |
+| security_rating | **1.0 (A)** |
+| reliability_rating | **1.0 (A)** |
+| sqale_rating | **1.0 (A)** |
+| vulnerabilities | **0** |
+| bugs | **0** |
+| open issues | **0** |
 
 **Pre-exclude baseline (b24dc804, full whisper.cpp scan):** ncloc=470823, security_rating=4.0 (D), reliability_rating=5.0 (E), code_smells=13936. Those grades measured ggml-org upstream, not EchoVox original work. See [BRAND_AND_ATTRIBUTION.md](../BRAND_AND_ATTRIBUTION.md).
 
