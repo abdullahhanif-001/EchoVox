@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # EchoVox Installer -- macOS & Linux
-# Usage: curl -sSL https://raw.githubusercontent.com/abdullahanifpro111-spec/EchoVox/main/install.sh | bash
+# Usage: curl -sSL https://raw.githubusercontent.com/abdullahhanif-001/EchoVox/main/install.sh | bash
 
 ECHOVOX_DIR="${ECHOVOX_DIR:-$HOME/EchoVox}"
 MODEL_URL="https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.bin"
@@ -52,7 +52,7 @@ if [[ -d "$ECHOVOX_DIR" ]]; then
     git pull --ff-only 2>/dev/null || true
 else
     info "Cloning EchoVox..."
-    git clone https://github.com/abdullahanifpro111-spec/EchoVox.git "$ECHOVOX_DIR"
+    git clone https://github.com/abdullahhanif-001/EchoVox.git "$ECHOVOX_DIR"
     cd "$ECHOVOX_DIR"
 fi
 

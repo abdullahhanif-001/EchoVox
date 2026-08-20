@@ -1,9 +1,9 @@
 # EchoVox
 
 [![Version](https://img.shields.io/badge/version-1.0.0-blue)](CHANGELOG.md)
-[![CI](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/ci.yml/badge.svg)](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/ci.yml)
-[![Audit Gate](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/audit-gate.yml/badge.svg)](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/audit-gate.yml)
-[![SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=abdullahanifpro111-spec_EchoVox&metric=alert_status)](https://sonarcloud.io/summary/overall?id=abdullahanifpro111-spec_EchoVox&branch=main)
+[![CI](https://github.com/abdullahhanif-001/EchoVox/actions/workflows/ci.yml/badge.svg)](https://github.com/abdullahhanif-001/EchoVox/actions/workflows/ci.yml)
+[![Audit Gate](https://github.com/abdullahhanif-001/EchoVox/actions/workflows/audit-gate.yml/badge.svg)](https://github.com/abdullahhanif-001/EchoVox/actions/workflows/audit-gate.yml)
+[![SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=abdullahhanif-001_EchoVox&metric=alert_status)](https://sonarcloud.io/summary/overall?id=abdullahhanif-001_EchoVox&branch=main)
 
 Production-grade Speech-to-Text engine optimized for **Urdu**, **Punjabi (Shahmukhi)**, and **Urdu-English code-switching**. 
 
@@ -17,12 +17,12 @@ Production-grade Speech-to-Text engine optimized for **Urdu**, **Punjabi (Shahmu
 
 **macOS / Linux:**
 ```bash
-curl -sSL https://raw.githubusercontent.com/abdullahanifpro111-spec/EchoVox/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/abdullahhanif-001/EchoVox/main/install.sh | bash
 ```
 
 **Windows (PowerShell as Admin):**
 ```powershell
-irm https://raw.githubusercontent.com/abdullahanifpro111-spec/EchoVox/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/abdullahhanif-001/EchoVox/main/install.ps1 | iex
 ```
 
 This installs all dependencies, builds the engine, and downloads the model automatically.

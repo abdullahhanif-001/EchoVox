@@ -123,11 +123,11 @@ All five patches documented in [PATCHES.md](reports/PATCHES.md) with file:line r
 One-command install URLs must resolve against `main` branch:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/abdullahanifpro111-spec/EchoVox/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/abdullahhanif-001/EchoVox/main/install.sh | bash
 ```
 
 ```powershell
-irm https://raw.githubusercontent.com/abdullahanifpro111-spec/EchoVox/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/abdullahhanif-001/EchoVox/main/install.ps1 | iex
 ```
 
 ## 4. Execution Commands

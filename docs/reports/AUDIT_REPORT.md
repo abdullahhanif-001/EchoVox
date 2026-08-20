@@ -3,7 +3,7 @@
 **Author:** Abdullah Hanif  
 **Date:** 2026-08-19  
 **Platform:** Windows AMD64, Python 3.12.8, 7.89 GB RAM  
-**Repository:** [abdullahanifpro111-spec/EchoVox](https://github.com/abdullahanifpro111-spec/EchoVox)
+**Repository:** [abdullahhanif-001/EchoVox](https://github.com/abdullahhanif-001/EchoVox)
 
 ## Executive Summary
 

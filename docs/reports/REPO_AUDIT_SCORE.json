@@ -1,7 +1,7 @@
 {
   "audited_at": "2026-08-20T00:00:00Z",
-  "repo": "abdullahanifpro111-spec/EchoVox",
-  "api": "https://repo-audit.coey.dev/api/audit?repo=abdullahanifpro111-spec/EchoVox&ai=0",
+  "repo": "abdullahhanif-001/EchoVox",
+  "api": "https://repo-audit.coey.dev/api/audit?repo=abdullahhanif-001/EchoVox&ai=0",
   "scores": {
     "firstImpressions": 2,
     "readme": 7,

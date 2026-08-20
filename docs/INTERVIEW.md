@@ -2,7 +2,7 @@
 
 **Author:** Abdullah Hanif  
 **Version:** 1.0.0  
-**Repo:** [abdullahanifpro111-spec/EchoVox](https://github.com/abdullahanifpro111-spec/EchoVox)
+**Repo:** [abdullahhanif-001/EchoVox](https://github.com/abdullahhanif-001/EchoVox)
 
 This document answers the questions an **AI-native architect** (someone who builds with Cursor AI, Copilot, or similar tools) is likely to ask in a technical interview about EchoVox — what it is, why it exists, how it works, language choices, Linux stability, market fit, and how the project was engineered and verified.
 
@@ -292,7 +292,7 @@ These questions assume the interviewer builds with **Cursor AI**, Copilot, or ag
 **A:** Cursor auto-appends AI co-author trailers on `git commit`. EchoVox uses **`git commit-tree`** (quoted in PowerShell) with explicit author:
 
 ```
-Abdullah Hanif <318501613+abdullahanifpro111-spec@users.noreply.github.com>
+Abdullah Hanif <318923962+abdullahhanif-001@users.noreply.github.com>
 ```
 
 Verify: `git show -s --format=%B HEAD` must have **no** cursoragent line.
@@ -381,7 +381,7 @@ Verify: `git show -s --format=%B HEAD` must have **no** cursoragent line.
 
 ```bash
 # Clone and verify (CI verification mode)
-git clone https://github.com/abdullahanifpro111-spec/EchoVox.git
+git clone https://github.com/abdullahhanif-001/EchoVox.git
 cd EchoVox
 pip install -r requirements.txt
 MYTHOS_SMOKE=1 ULTRA_SMOKE=1 ADVERSARIAL_SMOKE=1 python tests/run_audit_gate.py
@@ -410,7 +410,7 @@ PROOF: Mythos 7/7 + Ultra 7/7 + Sherlock 7/7 + Benchmark PASS
 STAB:  RSS drift <0.5% @ 50K steps | FD drift 0 | Q4_0 + buffer reuse
 MARKET: Self-hosted Urdu on cheap VPS — privacy, no per-minute API cost
 AI:    Cursor assists; commit-tree for clean author; audit gate blocks bad AI diffs
-REPO:  github.com/abdullahanifpro111-spec/EchoVox
+REPO:  github.com/abdullahhanif-001/EchoVox
 ```
 
 ---

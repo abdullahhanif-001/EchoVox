@@ -11,7 +11,7 @@
 If you discover a security vulnerability in EchoVox, please report it responsibly.
 
 **Email:** Open a private security advisory via GitHub:
-https://github.com/abdullahanifpro111-spec/EchoVox/security/advisories/new
+https://github.com/abdullahhanif-001/EchoVox/security/advisories/new
 
 **Do not** open a public issue for security vulnerabilities.
 

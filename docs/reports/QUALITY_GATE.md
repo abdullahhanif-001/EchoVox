@@ -12,11 +12,11 @@
 ## Live SonarCloud (product key)
 
 ```
-https://sonarcloud.io/summary/overall?id=abdullahanifpro111-spec_EchoVox&branch=main
+https://sonarcloud.io/summary/overall?id=abdullahhanif-001_EchoVox&branch=main
 ```
 
 ```bash
-curl.exe -s "https://sonarcloud.io/api/measures/component?component=abdullahanifpro111-spec_EchoVox&metricKeys=alert_status,security_rating,reliability_rating,sqale_rating,ncloc,bugs,vulnerabilities,coverage"
+curl.exe -s "https://sonarcloud.io/api/measures/component?component=abdullahhanif-001_EchoVox&metricKeys=alert_status,security_rating,reliability_rating,sqale_rating,ncloc,bugs,vulnerabilities,coverage"
 ```
 
 Automatic Analysis reads [`.sonarcloud.properties`](../../.sonarcloud.properties) (`whisper.cpp/**` excluded). CI scanner reads [`sonar-project.properties`](../../sonar-project.properties).
@@ -47,10 +47,10 @@ Automatic Analysis reads [`.sonarcloud.properties`](../../.sonarcloud.properties
 
 ## GitHub CI / nightly
 
-- CI matrix: [ci.yml](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/ci.yml)
-- Audit gate: [audit-gate.yml](https://github.com/abdullahanifpro111-spec/EchoVox/actions/workflows/audit-gate.yml)
+- CI matrix: [ci.yml](https://github.com/abdullahhanif-001/EchoVox/actions/workflows/ci.yml)
+- Audit gate: [audit-gate.yml](https://github.com/abdullahhanif-001/EchoVox/actions/workflows/audit-gate.yml)
 - Nightly 50K soak: Linux RSS threshold **0.50%** (Python simulator GC; FD drift still 0)
 
 ```bash
-gh api repos/abdullahanifpro111-spec/EchoVox/code-scanning/alerts --jq "[.[]|select(.state==\"open\")]|length"
+gh api repos/abdullahhanif-001/EchoVox/code-scanning/alerts --jq "[.[]|select(.state==\"open\")]|length"
 ```

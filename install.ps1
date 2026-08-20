@@ -1,5 +1,5 @@
 # EchoVox Installer -- Windows PowerShell
-# Usage: irm https://raw.githubusercontent.com/abdullahanifpro111-spec/EchoVox/main/install.ps1 | iex
+# Usage: irm https://raw.githubusercontent.com/abdullahhanif-001/EchoVox/main/install.ps1 | iex
 
 $ErrorActionPreference = "Stop"
 $EchoVoxDir = if ($env:ECHOVOX_DIR) { $env:ECHOVOX_DIR } else { "$env:USERPROFILE\EchoVox" }
@@ -45,7 +45,7 @@ if (Test-Path $EchoVoxDir) {
     git pull --ff-only 2>$null
 } else {
     Info "Cloning EchoVox..."
-    git clone https://github.com/abdullahanifpro111-spec/EchoVox.git $EchoVoxDir
+    git clone https://github.com/abdullahhanif-001/EchoVox.git $EchoVoxDir
     Set-Location $EchoVoxDir
 }
 
