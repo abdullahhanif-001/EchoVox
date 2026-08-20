@@ -1,0 +1,465 @@
+{
+  "platform": {
+    "os": "Windows",
+    "arch": "AMD64",
+    "python": "3.12.8",
+    "ram_gb": 7.89
+  },
+  "config": {
+    "total_steps": 50000,
+    "warmup_steps": 500,
+    "latency_cv_threshold": 0.025,
+    "mem_drift_threshold_pct": 0.5,
+    "fd_drift_threshold": 0,
+    "ctx_switch_ratio_max": 1.15
+  },
+  "assertions": {
+    "latency_cv": {
+      "metric": "Latency Coefficient of Variation (sigma/mu)",
+      "value": 0.010795,
+      "threshold": 0.025,
+      "mean_ms": 0.1122,
+      "stddev_ms": 0.0012,
+      "pass": "True"
+    },
+    "memory_drift": {
+      "metric": "RSS Memory Drift (step 1k vs late)",
+      "value_pct": 0.236772,
+      "threshold_pct": 0.5,
+      "rss_early_mb": 37.95,
+      "rss_late_mb": 38.04,
+      "pass": true
+    },
+    "fd_handle_drift": {
+      "metric": "File Descriptor / Handle Drift",
+      "value": 0,
+      "threshold": 0,
+      "pass": true
+    },
+    "ctx_switch_ratio": {
+      "metric": "Context Switch Late/Early Ratio",
+      "value": 1.0,
+      "threshold": 1.15,
+      "pass": true
+    },
+    "short_audio_patch": {
+      "metric": "Short Audio (<1.5s) Auto-Pad (Patch 1)",
+      "output": "[segment: 8 tokens, 24000 samples]",
+      "pass": true
+    },
+    "trigram_kill_switch": {
+      "metric": "Trigram Repetition EOT Kill Switch (Patch 4)",
+      "output": "[segment: 9 tokens, 80000 samples]",
+      "tokens_generated": 9,
+      "max_allowed": 9,
+      "pass": true
+    },
+    "mem_prealloc_patch": {
+      "metric": "Memory Pre-Allocation (Patch 3)",
+      "pass": true
+    }
+  },
+  "telemetry_samples": [
+    {
+      "step": 37500,
+      "rss_mb": 38.01,
+      "fds": 220,
+      "latency_ms": 0.111,
+      "audio_sec_per_s": 45025.0,
+      "drift_pct": 0.1647
+    },
+    {
+      "step": 37750,
+      "rss_mb": 38.01,
+      "fds": 220,
+      "latency_ms": 0.111,
+      "audio_sec_per_s": 45025.0,
+      "drift_pct": 0.1647
+    },
+    {
+      "step": 38000,
+      "rss_mb": 38.01,
+      "fds": 220,
+      "latency_ms": 0.111,
+      "audio_sec_per_s": 45025.0,
+      "drift_pct": 0.1647
+    },
+    {
+      "step": 38250,
+      "rss_mb": 38.01,
+      "fds": 220,
+      "latency_ms": 0.111,
+      "audio_sec_per_s": 45025.0,
+      "drift_pct": 0.1647
+    },
+    {
+      "step": 38500,
+      "rss_mb": 38.01,
+      "fds": 220,
+      "latency_ms": 0.111,
+      "audio_sec_per_s": 45025.0,
+      "drift_pct": 0.1647
+    },
+    {
+      "step": 38750,
+      "rss_mb": 38.01,
+      "fds": 220,
+      "latency_ms": 0.111,
+      "audio_sec_per_s": 45025.0,
+      "drift_pct": 0.1647
+    },
+    {
+      "step": 39000,
+      "rss_mb": 38.01,
+      "fds": 220,
+      "latency_ms": 0.111,
+      "audio_sec_per_s": 45025.0,
+      "drift_pct": 0.1647
+    },
+    {
+      "step": 39250,
+      "rss_mb": 38.01,
+      "fds": 220,
+      "latency_ms": 0.111,
+      "audio_sec_per_s": 45025.0,
+      "drift_pct": 0.175
+    },
+    {
+      "step": 39500,
+      "rss_mb": 38.02,
+      "fds": 220,
+      "latency_ms": 0.111,
+      "audio_sec_per_s": 45025.0,
+      "drift_pct": 0.1853
+    },
+    {
+      "step": 39750,
+      "rss_mb": 38.02,
+      "fds": 220,
+      "latency_ms": 0.111,
+      "audio_sec_per_s": 45025.0,
+      "drift_pct": 0.1853
+    },
+    {
+      "step": 40000,
+      "rss_mb": 38.02,
+      "fds": 220,
+      "latency_ms": 0.1092,
+      "audio_sec_per_s": 45780.9,
+      "drift_pct": 0.1853
+    },
+    {
+      "step": 40250,
+      "rss_mb": 38.02,
+      "fds": 220,
+      "latency_ms": 0.1092,
+      "audio_sec_per_s": 45780.9,
+      "drift_pct": 0.1853
+    },
+    {
+      "step": 40500,
+      "rss_mb": 38.02,
+      "fds": 220,
+      "latency_ms": 0.1092,
+      "audio_sec_per_s": 45780.9,
+      "drift_pct": 0.1853
+    },
+    {
+      "step": 40750,
+      "rss_mb": 38.02,
+      "fds": 220,
+      "latency_ms": 0.1092,
+      "audio_sec_per_s": 45780.9,
+      "drift_pct": 0.1853
+    },
+    {
+      "step": 41000,
+      "rss_mb": 38.02,
+      "fds": 220,
+      "latency_ms": 0.1092,
+      "audio_sec_per_s": 45780.9,
+      "drift_pct": 0.1853
+    },
+    {
+      "step": 41250,
+      "rss_mb": 38.02,
+      "fds": 220,
+      "latency_ms": 0.1092,
+      "audio_sec_per_s": 45780.9,
+      "drift_pct": 0.1853
+    },
+    {
+      "step": 41500,
+      "rss_mb": 38.02,
+      "fds": 220,
+      "latency_ms": 0.1092,
+      "audio_sec_per_s": 45780.9,
+      "drift_pct": 0.1853
+    },
+    {
+      "step": 41750,
+      "rss_mb": 38.02,
+      "fds": 220,
+      "latency_ms": 0.1092,
+      "audio_sec_per_s": 45780.9,
+      "drift_pct": 0.1853
+    },
+    {
+      "step": 42000,
+      "rss_mb": 38.02,
+      "fds": 220,
+      "latency_ms": 0.1092,
+      "audio_sec_per_s": 45780.9,
+      "drift_pct": 0.1853
+    },
+    {
+      "step": 42250,
+      "rss_mb": 38.02,
+      "fds": 220,
+      "latency_ms": 0.1092,
+      "audio_sec_per_s": 45780.9,
+      "drift_pct": 0.1853
+    },
+    {
+      "step": 42500,
+      "rss_mb": 38.02,
+      "fds": 220,
+      "latency_ms": 0.1092,
+      "audio_sec_per_s": 45780.9,
+      "drift_pct": 0.1956
+    },
+    {
+      "step": 42750,
+      "rss_mb": 38.02,
+      "fds": 220,
+      "latency_ms": 0.1092,
+      "audio_sec_per_s": 45780.9,
+      "drift_pct": 0.1956
+    },
+    {
+      "step": 43000,
+      "rss_mb": 38.02,
+      "fds": 220,
+      "latency_ms": 0.1092,
+      "audio_sec_per_s": 45780.9,
+      "drift_pct": 0.1956
+    },
+    {
+      "step": 43250,
+      "rss_mb": 38.02,
+      "fds": 220,
+      "latency_ms": 0.1092,
+      "audio_sec_per_s": 45780.9,
+      "drift_pct": 0.1956
+    },
+    {
+      "step": 43500,
+      "rss_mb": 38.02,
+      "fds": 220,
+      "latency_ms": 0.1092,
+      "audio_sec_per_s": 45780.9,
+      "drift_pct": 0.1956
+    },
+    {
+      "step": 43750,
+      "rss_mb": 38.02,
+      "fds": 220,
+      "latency_ms": 0.1092,
+      "audio_sec_per_s": 45780.9,
+      "drift_pct": 0.1956
+    },
+    {
+      "step": 44000,
+      "rss_mb": 38.02,
+      "fds": 220,
+      "latency_ms": 0.1092,
+      "audio_sec_per_s": 45780.9,
+      "drift_pct": 0.1956
+    },
+    {
+      "step": 44250,
+      "rss_mb": 38.02,
+      "fds": 220,
+      "latency_ms": 0.1092,
+      "audio_sec_per_s": 45780.9,
+      "drift_pct": 0.1956
+    },
+    {
+      "step": 44500,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1092,
+      "audio_sec_per_s": 45780.9,
+      "drift_pct": 0.2162
+    },
+    {
+      "step": 44750,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1092,
+      "audio_sec_per_s": 45780.9,
+      "drift_pct": 0.2162
+    },
+    {
+      "step": 45000,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1133,
+      "audio_sec_per_s": 44114.5,
+      "drift_pct": 0.2162
+    },
+    {
+      "step": 45250,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1133,
+      "audio_sec_per_s": 44114.5,
+      "drift_pct": 0.2162
+    },
+    {
+      "step": 45500,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1133,
+      "audio_sec_per_s": 44114.5,
+      "drift_pct": 0.2162
+    },
+    {
+      "step": 45750,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1133,
+      "audio_sec_per_s": 44114.5,
+      "drift_pct": 0.2162
+    },
+    {
+      "step": 46000,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1133,
+      "audio_sec_per_s": 44114.5,
+      "drift_pct": 0.2162
+    },
+    {
+      "step": 46250,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1133,
+      "audio_sec_per_s": 44114.5,
+      "drift_pct": 0.2162
+    },
+    {
+      "step": 46500,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1133,
+      "audio_sec_per_s": 44114.5,
+      "drift_pct": 0.2162
+    },
+    {
+      "step": 46750,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1133,
+      "audio_sec_per_s": 44114.5,
+      "drift_pct": 0.2162
+    },
+    {
+      "step": 47000,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1133,
+      "audio_sec_per_s": 44114.5,
+      "drift_pct": 0.2162
+    },
+    {
+      "step": 47250,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1133,
+      "audio_sec_per_s": 44114.5,
+      "drift_pct": 0.2162
+    },
+    {
+      "step": 47500,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1133,
+      "audio_sec_per_s": 44114.5,
+      "drift_pct": 0.2162
+    },
+    {
+      "step": 47750,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1133,
+      "audio_sec_per_s": 44114.5,
+      "drift_pct": 0.2162
+    },
+    {
+      "step": 48000,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1133,
+      "audio_sec_per_s": 44114.5,
+      "drift_pct": 0.2162
+    },
+    {
+      "step": 48250,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1133,
+      "audio_sec_per_s": 44114.5,
+      "drift_pct": 0.2162
+    },
+    {
+      "step": 48500,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1133,
+      "audio_sec_per_s": 44114.5,
+      "drift_pct": 0.2162
+    },
+    {
+      "step": 48750,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1133,
+      "audio_sec_per_s": 44114.5,
+      "drift_pct": 0.2162
+    },
+    {
+      "step": 49000,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1133,
+      "audio_sec_per_s": 44114.5,
+      "drift_pct": 0.2162
+    },
+    {
+      "step": 49250,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1133,
+      "audio_sec_per_s": 44114.5,
+      "drift_pct": 0.2265
+    },
+    {
+      "step": 49500,
+      "rss_mb": 38.03,
+      "fds": 220,
+      "latency_ms": 0.1133,
+      "audio_sec_per_s": 44114.5,
+      "drift_pct": 0.2265
+    },
+    {
+      "step": 49750,
+      "rss_mb": 38.04,
+      "fds": 220,
+      "latency_ms": 0.1133,
+      "audio_sec_per_s": 44114.5,
+      "drift_pct": 0.2368
+    }
+  ],
+  "overall_pass": true
+}

@@ -1,0 +1,49 @@
+# Cursor IDE
+.cursor/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Telemetry / audit output (local runs only; committed baselines live under docs/reports/artifacts/)
+tests/stt_ultimate_telemetry.json
+tests/heavy_audit_telemetry.json
+tests/sherlock_adversarial_telemetry.json
+.coverage
+coverage.xml
+htmlcov/
+.tmp_validate/
+.tmp_wheels/
+
+# Build artifacts
+whisper.cpp/build/
+whisper.cpp/build-*/
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Models (too large for git)
+*.bin
+*.ggml
+*.onnx
+*.pt
+*.pth

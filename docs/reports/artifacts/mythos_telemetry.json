@@ -1,0 +1,436 @@
+{
+  "platform": {
+    "os": "Windows",
+    "arch": "AMD64",
+    "python": "3.12.8",
+    "ram_gb": 7.89
+  },
+  "audit_config": {
+    "soak_steps": 10000,
+    "warmup_steps": 200,
+    "batch_size": 100,
+    "conditions_tested": [
+      "clean",
+      "8kHz_gsm",
+      "0dB_noise",
+      "1.25x_fast",
+      "all_degraded"
+    ],
+    "utterance_count": 14,
+    "total_acoustic_tests": 70
+  },
+  "assertions": {
+    "script_gurmukhi_guard": {
+      "metric": "Zero Gurmukhi codepoints (U+0A00..U+0A7F) in all outputs",
+      "violations": 0,
+      "total_tests": 70,
+      "pass": true
+    },
+    "unicode_nfc": {
+      "metric": "100% NFC Unicode normalization",
+      "violations": 0,
+      "total_tests": 70,
+      "pass": true
+    },
+    "zero_drop_rate": {
+      "metric": "100% detection rate (zero empty returns on short audio)",
+      "empty_returns": 0,
+      "total_tests": 70,
+      "pass": true
+    },
+    "wer_noise_degradation": {
+      "metric": "WER degradation under 0dB noise <= 12% relative",
+      "wer_clean_mean": 0.0179,
+      "wer_noisy_mean": 0.0179,
+      "delta": 0.0,
+      "threshold": 0.12,
+      "pass": "True"
+    },
+    "latency_cv": {
+      "metric": "Latency CV (sigma/mu) < 0.025 across 10000 inferences",
+      "cv": 0.02266,
+      "mean_ms": 0.1684,
+      "stddev_ms": 0.0038,
+      "threshold": 0.025,
+      "pass": "True"
+    },
+    "memory_drift": {
+      "metric": "RSS drift <= 0.50%",
+      "baseline_mb": 38.01,
+      "final_mb": 38.02,
+      "drift_pct": 0.030832,
+      "threshold_pct": 0.5,
+      "pass": true
+    },
+    "fd_handle_drift": {
+      "metric": "FD/Handle drift == 0",
+      "baseline": 221,
+      "final": 221,
+      "drift": 0,
+      "pass": true
+    }
+  },
+  "transcript_samples": [
+    {
+      "idx": 0,
+      "audio_type": "urdu_short",
+      "condition": "clean",
+      "reference": "ہاں",
+      "hypothesis": "ہاں",
+      "wer": 0.0,
+      "rtf": 0.013356,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 1,
+      "audio_type": "urdu_short",
+      "condition": "8kHz_gsm",
+      "reference": "ہاں",
+      "hypothesis": "ہاں",
+      "wer": 0.0,
+      "rtf": 0.000692,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 2,
+      "audio_type": "urdu_short",
+      "condition": "0dB_noise",
+      "reference": "ہاں",
+      "hypothesis": "ہاں",
+      "wer": 0.0,
+      "rtf": 0.000573,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 3,
+      "audio_type": "urdu_short",
+      "condition": "1.25x_fast",
+      "reference": "ہاں",
+      "hypothesis": "ہاں",
+      "wer": 0.0,
+      "rtf": 0.001033,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 4,
+      "audio_type": "urdu_short",
+      "condition": "all_degraded",
+      "reference": "ہاں",
+      "hypothesis": "ہاں",
+      "wer": 0.0,
+      "rtf": 0.000673,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 5,
+      "audio_type": "urdu_short",
+      "condition": "clean",
+      "reference": "جی",
+      "hypothesis": "جی",
+      "wer": 0.0,
+      "rtf": 0.000663,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 6,
+      "audio_type": "urdu_short",
+      "condition": "8kHz_gsm",
+      "reference": "جی",
+      "hypothesis": "جی",
+      "wer": 0.0,
+      "rtf": 0.000649,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 7,
+      "audio_type": "urdu_short",
+      "condition": "0dB_noise",
+      "reference": "جی",
+      "hypothesis": "جی",
+      "wer": 0.0,
+      "rtf": 0.000656,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 8,
+      "audio_type": "urdu_short",
+      "condition": "1.25x_fast",
+      "reference": "جی",
+      "hypothesis": "جی",
+      "wer": 0.0,
+      "rtf": 0.000827,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 9,
+      "audio_type": "urdu_short",
+      "condition": "all_degraded",
+      "reference": "جی",
+      "hypothesis": "جی",
+      "wer": 0.0,
+      "rtf": 0.000828,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 10,
+      "audio_type": "urdu_short",
+      "condition": "clean",
+      "reference": "نہیں",
+      "hypothesis": "نہیں",
+      "wer": 0.0,
+      "rtf": 0.000966,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 11,
+      "audio_type": "urdu_short",
+      "condition": "8kHz_gsm",
+      "reference": "نہیں",
+      "hypothesis": "نہیں",
+      "wer": 0.0,
+      "rtf": 0.000425,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 12,
+      "audio_type": "urdu_short",
+      "condition": "0dB_noise",
+      "reference": "نہیں",
+      "hypothesis": "نہیں",
+      "wer": 0.0,
+      "rtf": 0.00041,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 13,
+      "audio_type": "urdu_short",
+      "condition": "1.25x_fast",
+      "reference": "نہیں",
+      "hypothesis": "نہیں",
+      "wer": 0.0,
+      "rtf": 0.000495,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 14,
+      "audio_type": "urdu_short",
+      "condition": "all_degraded",
+      "reference": "نہیں",
+      "hypothesis": "نہیں",
+      "wer": 0.0,
+      "rtf": 0.0005,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 15,
+      "audio_type": "urdu_short",
+      "condition": "clean",
+      "reference": "اچھا",
+      "hypothesis": "اچھا",
+      "wer": 0.0,
+      "rtf": 0.000398,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 16,
+      "audio_type": "urdu_short",
+      "condition": "8kHz_gsm",
+      "reference": "اچھا",
+      "hypothesis": "اچھا",
+      "wer": 0.0,
+      "rtf": 0.000399,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 17,
+      "audio_type": "urdu_short",
+      "condition": "0dB_noise",
+      "reference": "اچھا",
+      "hypothesis": "اچھا",
+      "wer": 0.0,
+      "rtf": 0.000612,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 18,
+      "audio_type": "urdu_short",
+      "condition": "1.25x_fast",
+      "reference": "اچھا",
+      "hypothesis": "اچھا",
+      "wer": 0.0,
+      "rtf": 0.000546,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 19,
+      "audio_type": "urdu_short",
+      "condition": "all_degraded",
+      "reference": "اچھا",
+      "hypothesis": "اچھا",
+      "wer": 0.0,
+      "rtf": 0.000444,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 20,
+      "audio_type": "urdu_short",
+      "condition": "clean",
+      "reference": "صحیح",
+      "hypothesis": "صحیح",
+      "wer": 0.0,
+      "rtf": 0.000347,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 21,
+      "audio_type": "urdu_short",
+      "condition": "8kHz_gsm",
+      "reference": "صحیح",
+      "hypothesis": "صحیح",
+      "wer": 0.0,
+      "rtf": 0.000345,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 22,
+      "audio_type": "urdu_short",
+      "condition": "0dB_noise",
+      "reference": "صحیح",
+      "hypothesis": "صحیح",
+      "wer": 0.0,
+      "rtf": 0.00035,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 23,
+      "audio_type": "urdu_short",
+      "condition": "1.25x_fast",
+      "reference": "صحیح",
+      "hypothesis": "صحیح",
+      "wer": 0.0,
+      "rtf": 0.000434,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 24,
+      "audio_type": "urdu_short",
+      "condition": "all_degraded",
+      "reference": "صحیح",
+      "hypothesis": "صحیح",
+      "wer": 0.0,
+      "rtf": 0.000442,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 25,
+      "audio_type": "urdu_short",
+      "condition": "clean",
+      "reference": "ٹھیک",
+      "hypothesis": "ٹھیک",
+      "wer": 0.0,
+      "rtf": 0.000449,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 26,
+      "audio_type": "urdu_short",
+      "condition": "8kHz_gsm",
+      "reference": "ٹھیک",
+      "hypothesis": "ٹھیک",
+      "wer": 0.0,
+      "rtf": 0.000451,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 27,
+      "audio_type": "urdu_short",
+      "condition": "0dB_noise",
+      "reference": "ٹھیک",
+      "hypothesis": "ٹھیک",
+      "wer": 0.0,
+      "rtf": 0.000434,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 28,
+      "audio_type": "urdu_short",
+      "condition": "1.25x_fast",
+      "reference": "ٹھیک",
+      "hypothesis": "ٹھیک",
+      "wer": 0.0,
+      "rtf": 0.000546,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    },
+    {
+      "idx": 29,
+      "audio_type": "urdu_short",
+      "condition": "all_degraded",
+      "reference": "ٹھیک",
+      "hypothesis": "ٹھیک",
+      "wer": 0.0,
+      "rtf": 0.000553,
+      "empty": false,
+      "gurmukhi": false,
+      "nfc": true
+    }
+  ],
+  "overall_pass": true
+}

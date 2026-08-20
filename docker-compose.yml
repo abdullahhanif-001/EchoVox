@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  echovox:
+    image: ghcr.io/ggml-org/whisper.cpp:main
+    user: "1000:1000"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./models:/models
+    command: >
+      whisper-server --host 0.0.0.0 --port 8080
+      -m /models/ggml-medium-urdu-q4_0.bin -l ur
+      --threads 1
+      --max-tokens 0 --max-context 0
+      --no-speech-thold 0.4
+      --beam-size 5 --best-of 5
+      --vad --vad-model /models/silero-v5.1.2-ggml.bin
+      --vad-min-speech-duration-ms 200
+      --vad-min-silence-duration-ms 500
+      --vad-speech-pad-ms 400
+      --vad-samples-overlap 0.1
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 1G

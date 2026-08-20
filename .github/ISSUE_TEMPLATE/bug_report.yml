@@ -1,0 +1,39 @@
+name: Bug Report
+description: Report a bug in EchoVox
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for reporting a bug. Please provide details below.
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      placeholder: "1. Run ...\n2. See error"
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - Linux
+        - macOS
+        - Windows
+        - Android
+        - VPS
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: EchoVox Version / Commit
+      placeholder: main @ abc1234
