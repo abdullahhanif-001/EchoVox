@@ -18,6 +18,7 @@ tests/sherlock_adversarial_telemetry.json
 coverage.xml
 htmlcov/
 .tmp_validate/
+.tmp_wheels/
 
 # Build artifacts
 whisper.cpp/build/
