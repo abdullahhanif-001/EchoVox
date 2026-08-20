@@ -19,7 +19,9 @@ https://sonarcloud.io/summary/overall?id=abdullahanifpro111-spec_EchoVox&branch=
 curl.exe -s "https://sonarcloud.io/api/measures/component?component=abdullahanifpro111-spec_EchoVox&metricKeys=alert_status,security_rating,reliability_rating,sqale_rating,ncloc,bugs,vulnerabilities,coverage"
 ```
 
-**GitHub Actions scanner** requires repo secret `SONAR_TOKEN` (SonarCloud My Account → Security). If the secret is empty, the `sonar` workflow is skipped; SonarCloud GitHub Automatic Analysis still reads [`sonar-project.properties`](../../sonar-project.properties) on the next analysis.
+Automatic Analysis reads [`.sonarcloud.properties`](../../.sonarcloud.properties) (`whisper.cpp/**` excluded). CI scanner reads [`sonar-project.properties`](../../sonar-project.properties).
+
+To switch to GitHub Actions analysis: SonarCloud → Project → Administration → Analysis Method → disable Automatic Analysis, then keep repo secret `SONAR_TOKEN`.
 
 | Metric | Target |
 |--------|--------|
