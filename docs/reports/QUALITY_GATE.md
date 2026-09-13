@@ -76,3 +76,9 @@ curl.exe -s "https://sonarcloud.io/api/measures/component?component=abdullahhani
 ```bash
 gh api repos/abdullahhanif-001/EchoVox/code-scanning/alerts --jq "[.[]|select(.state==\"open\")]|length"
 ```
+
+## PR #23 verification (2026-09-13)
+
+Merged contributor Actions upgrade (CodeQL v4.37.8, upload-artifact v7.0.1, action-gh-release v3.0.2) after green ci / CodeQL / audit-gate / Sonar. Follow-up: Sherlock `ADVERSARIAL_SMOKE` memory bar **2.0%** for macOS arm64 CI GC (full soak still **0.50%**). Dependabot #15–#19 closed as superseded.
+
+Full write-up: [`PR23_VERIFICATION.md`](PR23_VERIFICATION.md).
