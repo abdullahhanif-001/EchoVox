@@ -18,7 +18,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install pinned Python toolchain
-        run: python -m pip install --require-hashes -r requirements.txt
+        run: python -m pip install --require-hashes --only-binary :all: -r requirements.txt
 
       - name: Generate coverage.xml
         env:
