@@ -66,6 +66,7 @@ curl.exe -s "https://sonarcloud.io/api/measures/component?component=abdullahhani
 | shelldre:S7688 | `[[` conditionals in install/deploy scripts |
 | shell:S6506 | `curl --proto '=https' --tlsv1.2` |
 | shell:S8541 | `pip install --only-binary :all:` in deploy-android.sh |
+| githubactions:S8541 | `pip install --only-binary :all:` in GitHub Actions workflows |
 
 ## GitHub CI / nightly
 
