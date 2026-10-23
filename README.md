@@ -35,6 +35,7 @@ This installs all dependencies, builds the engine, and downloads the model autom
 | [Benchmark Report](docs/reports/BENCHMARK.md) | RTF/WER vs market STT baselines |
 | [Engineering Test Plan](docs/ENGINEERING_TEST_PLAN.md) | Complete test strategy covering all deployment dimensions |
 | [Patch Documentation](docs/reports/PATCHES.md) | whisper.cpp production patches with file references |
+| [Track 3 — whisper.cpp upstream](docs/TRACK3_WHISPER_UPSTREAM.md) | Three PR-ready patches for ggml-org/whisper.cpp |
 | [Changelog](CHANGELOG.md) | Release notes and version history |
 | [Security Policy](SECURITY.md) | Vulnerability reporting |
 | [Contributing](CONTRIBUTING.md) | Contributor guide |

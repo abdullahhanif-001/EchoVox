@@ -2,6 +2,8 @@
 
 EchoVox applies five targeted patches to [whisper.cpp/src/whisper.cpp](../../whisper.cpp/src/whisper.cpp) for production Urdu/Punjabi deployment.
 
+**Upstream (Track 3):** the same fixes are split into three PR-ready patches for [ggml-org/whisper.cpp](https://github.com/ggml-org/whisper.cpp). See [TRACK3_WHISPER_UPSTREAM.md](../TRACK3_WHISPER_UPSTREAM.md) and [`upstream-whisper/patches/`](../../upstream-whisper/patches/).
+
 ## Patch 1: Short Audio Auto-Padding
 
 **Problem:** Utterances under 1.5 seconds are silently skipped or return empty strings.
