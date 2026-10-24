@@ -2,6 +2,11 @@
 
 All notable changes to EchoVox are documented in this file.
 
+## [Unreleased]
+
+### Added
+- Track 3 upstream kit: three `git am` patches for ggml-org/whisper.cpp, verify/push scripts, and [`docs/TRACK3_WHISPER_UPSTREAM.md`](docs/TRACK3_WHISPER_UPSTREAM.md)
+
 ## [1.0.0] - 2026-08-20
 
 ### Added
