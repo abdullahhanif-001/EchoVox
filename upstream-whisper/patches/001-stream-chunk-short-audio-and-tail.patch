@@ -1,5 +1,5 @@
 From 30385d85b4379f9965cdb5feafb074324460a7d6 Mon Sep 17 00:00:00 2001
-From: Cursor Agent <cursoragent@cursor.com>
+From: Abdullah Hanif <318923962+abdullahhanif-001@users.noreply.github.com>
 Date: Fri, 23 Oct 2026 10:04:37 +0000
 Subject: [PATCH] whisper: pad short PCM and relax final-chunk delta_min for
  streaming

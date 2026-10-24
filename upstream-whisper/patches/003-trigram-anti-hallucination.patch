@@ -1,5 +1,5 @@
 From ca891c90c7385513719fc8405d252df280693b22 Mon Sep 17 00:00:00 2001
-From: Cursor Agent <cursoragent@cursor.com>
+From: Abdullah Hanif <318923962+abdullahhanif-001@users.noreply.github.com>
 Date: Fri, 23 Oct 2026 10:05:02 +0000
 Subject: [PATCH] whisper: break trigram repetition loops during decode
 

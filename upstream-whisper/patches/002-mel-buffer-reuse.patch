@@ -1,5 +1,5 @@
 From 6c1dbcc89ff56efd7926f437c49c307eaf25e19b Mon Sep 17 00:00:00 2001
-From: Cursor Agent <cursoragent@cursor.com>
+From: Abdullah Hanif <318923962+abdullahhanif-001@users.noreply.github.com>
 Date: Fri, 23 Oct 2026 10:04:55 +0000
 Subject: [PATCH] whisper: reuse mel_pad_buf in log_mel_spectrogram for
  streaming
